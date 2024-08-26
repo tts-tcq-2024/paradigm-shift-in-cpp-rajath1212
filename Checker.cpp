@@ -31,9 +31,9 @@ bool chargeratecheck(float chargeRate)
 }
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
    
-temperaturecheck(float temperature);
-soccheck(float soc);
-chargeratecheck(float chargeRate); 
+temperaturecheck(temperature);
+soccheck(soc);
+chargeratecheck(chargeRate); 
         
   return true;
 }
