@@ -30,8 +30,8 @@ int main() {
    assert(temperaturecheck(25) == true);
    assert(soccheck(70) == true);
    assert(chargeratecheck(0.7) == true);
-   assert(temperaturecheck(50) == true);
-   assert(soccheck(85) == true);
-   assert(chargeratecheck(0) == true);
+   assert(temperaturecheck(50) == false);
+   assert(soccheck(85) == false);
+   assert(chargeratecheck(0) == false);
   return 0;
 }
