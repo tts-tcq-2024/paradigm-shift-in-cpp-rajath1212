@@ -31,7 +31,7 @@ bool batteryIsOk(float temperature, float soc, float chargeRate) {
   return true;
 }
 
-int main() {
+void main() {
   assert(batteryIsOk(25, 70, 0.7) == true);
   assert(batteryIsOk(50, 85, 0) == false);
 }
