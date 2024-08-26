@@ -8,8 +8,6 @@ bool temperaturecheck(float temperature)
     cout << "Temperature out of range!\n";
     return false;
     }
-    else 
-        return true;
 }
 bool soccheck(float soc)
 {
@@ -17,8 +15,7 @@ bool soccheck(float soc)
     cout << "State of Charge out of range!\n";
     return false;
   }
-    else 
-        return true;
+    
 }
 bool chargeratecheck(float chargeRate)
 {
@@ -26,8 +23,6 @@ bool chargeratecheck(float chargeRate)
     cout << "Charge Rate out of range!\n";
     return false;
   }
-    else 
-        return true;
 }
 
 int main() {
