@@ -1,23 +1,23 @@
 #include <assert.h>
 #include <iostream>
 using namespace std;
-bool temperaturecheck(float temperature)
+bool temperaturecheck(float temperature1)
 {  
-    if(temperature < 0 || temperature > 45) {
+    if(temperature1 < 0 || temperature1 > 45) {
     cout << "Temperature out of range!\n";
     return false;
     }
 }
-bool soccheck(float soc)
+bool soccheck(float soc1)
 {
-  if(soc < 20 || soc > 80) {
+  if(soc1 < 20 || soc1 > 80) {
     cout << "State of Charge out of range!\n";
     return false;
   }
 }
-bool chargeratecheck(float chargeRate)
+bool chargeratecheck(float chargeRate1)
 {
-  if(chargeRate > 0.8) {
+  if(chargeRate1 > 0.8) {
     cout << "Charge Rate out of range!\n";
     return false;
   }
