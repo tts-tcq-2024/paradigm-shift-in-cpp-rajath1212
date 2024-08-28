@@ -2,12 +2,17 @@
 #include <cassert>
 #include <iostream>
 using namespace std;
+uint8_t batterycheck(bool temperatureCheck, bool socCheck, bool chargeRateCheck) {
+  return temperatureCheck&&socCheck&&chargeRateCheck;
+}
 bool temperaturecheck(float temperature)
 {  
     if(temperature < 0 || temperature > 45) {
     cout << "Temperature out of range!\n";
     return false;
     }
+    else
+        return true;
    
 }
 bool soccheck(float soc)
@@ -16,6 +21,7 @@ bool soccheck(float soc)
     cout << "State of Charge out of range!\n";
     return false;
   }
+    return true;
  
 }
 bool chargeratecheck(float chargeRate)
@@ -24,15 +30,16 @@ bool chargeratecheck(float chargeRate)
     cout << "Charge Rate out of range!\n";
     return false;
   }
+    return true;
 
 }
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
    
-temperaturecheck(temperature);
-soccheck(soc);
-chargeratecheck(chargeRate); 
+bool tempflag    = temperaturecheck(temperature);
+bool socflag     = soccheck(soc);
+bool chargeflag  = chargeratecheck(chargeRate); 
         
-  return true;
+  return batterycheck(tempflag, socflag, chargeflag) ;
 }
 
 int main() {
