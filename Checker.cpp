@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <cassert>
 #include <iostream>
-#include <stdio>
+
 void EarlyWarning(float parameter, float minLimit , float maxLimit)
 {
     float ToleRance = parameter * 0.05 ;
@@ -9,9 +9,9 @@ void EarlyWarning(float parameter, float minLimit , float maxLimit)
     float maxTolerance = parameter - ToleRance;
 
   if(parameter >= minLimit && parameter <= minTolerance)
-    cout<<"Warning: Approaching discharge \n";
+    std::cout<<"Warning: Approaching discharge \n";
   else if (parameter >= maxTolerance && parameter <= maxLimit)
-      cout<<"Warning: Approaching charge-peak \n";
+    std::cout<<"Warning: Approaching charge-peak \n";
 }
 using namespace std;
 uint8_t batterycheck(bool temperatureCheck, bool socCheck, bool chargeRateCheck) {
@@ -50,7 +50,7 @@ bool chargeratecheck(float chargeRate)
   }
   else
   {
-    EarlyWarning(soc,0,0.8);
+    EarlyWarning(chargeRate,0,0.8);
     return true;
   }
 }
