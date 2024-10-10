@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <cassert>
 #include <iostream>
+#include <stdio>
 void EarlyWarning(float parameter, float minLimit , float maxLimit)
 {
     float ToleRance = parameter * 0.05 ;
