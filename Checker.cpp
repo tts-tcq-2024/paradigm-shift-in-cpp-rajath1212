@@ -1,6 +1,18 @@
 #include <assert.h>
 #include <cassert>
 #include <iostream>
+
+void EarlyWarning(float parameter, float minLimit , float maxLimit)
+{
+    float ToleRance = parameter * 0.05 ;
+    float minTolerance = parameter + ToleRance;
+    float maxTolerance = parameter - ToleRance;
+
+  if(parameter >= minLimit && parameter <= minTolerance)
+    std::cout<<"Warning: Approaching discharge \n";
+  else if (parameter >= maxTolerance && parameter <= maxLimit)
+    std::cout<<"Warning: Approaching charge-peak \n";
+}
 using namespace std;
 uint8_t batterycheck(bool temperatureCheck, bool socCheck, bool chargeRateCheck) {
   return temperatureCheck&&socCheck&&chargeRateCheck;
@@ -12,7 +24,10 @@ bool temperaturecheck(float temperature)
     return false;
     }
     else
-        return true;
+    {
+      EarlyWarning(temperature,0,45);
+      return true;
+    }
    
 }
 bool soccheck(float soc)
@@ -21,8 +36,11 @@ bool soccheck(float soc)
     cout << "State of Charge out of range!\n";
     return false;
   }
+  else
+  {
+    EarlyWarning(soc,20,80);
     return true;
- 
+  }
 }
 bool chargeratecheck(float chargeRate)
 {
@@ -30,8 +48,11 @@ bool chargeratecheck(float chargeRate)
     cout << "Charge Rate out of range!\n";
     return false;
   }
+  else
+  {
+    EarlyWarning(chargeRate,0,0.8);
     return true;
-
+  }
 }
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
    
